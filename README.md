@@ -5,6 +5,8 @@ Make flaky Javascript tests super flaky for easier triage by randomly delaying t
 
 Crunchy uses zone.js to intercept Javascript's task queue, and adds random delays when executing tasks. The order of the tasks in the queue are preserved.
 
+Play around with it here: https://stackblitz.com/edit/zonejs-basic-kumqfd?file=index.js
+
 ## How will this help find flaky tests?
 
 Consider the following code:
