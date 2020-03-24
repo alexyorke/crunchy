@@ -1,5 +1,5 @@
 let timer;
-
+// based off of https://indepth.dev/i-reverse-engineered-zones-zone-js-and-here-is-what-ive-found/
 const z = Zone.current.fork({
   name: "z",
   onInvokeTask(delegate, currentZone, targetZone, task, ...args) {
