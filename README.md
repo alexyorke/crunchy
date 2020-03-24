@@ -51,6 +51,19 @@ Synchronous task 2
 
 This changes the execution flow, thus introducing a different path that the tests could take, and changes the state of the tests. If the tests fail, then they're flaky because it shouldn't matter how long a task takes; there should be something waiting for it to finish (the exception to this is animations.)
 
+Let's see another way this can help. Consider the following code which updates the variable `x`:
+
+```javascript
+  let x = 1;
+  console.log("Value of x", x);
+  setTimeout(function() {
+    x = 2;
+  }, 0);
+  console.log("Value of x", x);
+```
+
+Under "normal" cirmstances, it will print "Value of x 1" and then "Value of x 2". Under crunchy, it could print that, or it could print "Value of x 1" then "Value of x 1" since `setTimeout` was delayed by a few milliseconds. This is usually discoverable by running this method thousands and thousands of times, or by running crunchy a few times.
+
 ## Example
 
 Here's an example (after including crunchy):
