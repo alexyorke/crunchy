@@ -50,3 +50,17 @@ Synchronous task 2
 ```
 
 This changes the execution flow, thus introducing a different path that the tests could take, and changes the state of the tests. If the tests fail, then they're flaky because it shouldn't matter how long a task takes; there should be something waiting for it to finish (the exception to this is animations.)
+
+## Example
+
+Here's an example (after including crunchy):
+```javascript
+z.run(function() {
+    timer = Date.now();
+    console.log("Synchronous task 1");
+    setTimeout(function() {
+        console.log("Async task 1");
+    }, 0);
+    console.log("Synchronous task 2");
+});
+```
