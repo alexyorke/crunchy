@@ -14,13 +14,4 @@ const z = Zone.current.fork({
   }
 });
 
-function b() {
-  timer = Date.now();
-  console.log("Synchronous task 1");
-  setTimeout(function() {
-    console.log("Async task 1");
-  }, 0);
-  console.log("Synchronous task 2");
-}
-
-z.run(b);
+// run your code via z.run(<function>)
